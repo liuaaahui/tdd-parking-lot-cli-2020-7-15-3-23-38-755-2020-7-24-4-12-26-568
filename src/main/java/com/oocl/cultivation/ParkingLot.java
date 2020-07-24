@@ -3,10 +3,11 @@ package com.oocl.cultivation;
 
 public class ParkingLot {
     public Ticket park(Car car) {
-        return new Ticket();
+        Ticket ticket = new Ticket(car);
+        return ticket;
     }
 
     public Car feach(Ticket carTicket) {
-        return null;
+        return carTicket.getCar();
     }
 }
