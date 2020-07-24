@@ -6,6 +6,8 @@ import com.oocl.cultivation.Ticket;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.locks.LockSupport;
 
 public class ParkingLotFacts {
@@ -32,4 +34,19 @@ public class ParkingLotFacts {
         Assertions.assertNotNull(actualCar);
         Assertions.assertEquals(car,actualCar);
     }
+
+    @Test
+    void should_return_ticket_when_park_given_lot_cars() {
+        //given
+        Car firstCar = new Car();
+        Car secondCar = new Car();
+        ParkingLot parkingLot = new ParkingLot();
+        //when
+        Ticket firstTicket = parkingLot.park(firstCar);
+        Ticket secondTicket = parkingLot.park(secondCar);
+        //then
+        Assertions.assertNotNull(firstTicket);
+        Assertions.assertNotNull(secondTicket);
+    }
+
 }
