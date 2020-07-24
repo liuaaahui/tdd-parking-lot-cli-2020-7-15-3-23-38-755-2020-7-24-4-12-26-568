@@ -49,4 +49,23 @@ public class ParkingLotFacts {
         Assertions.assertNotNull(secondTicket);
     }
 
+    @Test
+    void should_return_correspond_cars_when_feach_given_lot_tickets() {
+        //given
+        Car firstCar = new Car();
+        Car secondCar = new Car();
+        ParkingLot parkingLot = new ParkingLot();
+        Ticket firstTicket = parkingLot.park(firstCar);
+        Ticket secondTicket = parkingLot.park(secondCar);
+        //when
+        Car carWithFirstTicket = parkingLot.feach(firstTicket);
+        Car carWithSecondTicket = parkingLot.feach(secondTicket);
+
+        //then
+        Assertions.assertNotNull(carWithFirstTicket);
+        Assertions.assertNotNull(carWithSecondTicket);
+        Assertions.assertEquals(carWithFirstTicket,firstCar);
+        Assertions.assertEquals(carWithSecondTicket,secondCar);
+    }
+
 }
