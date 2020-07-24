@@ -21,13 +21,15 @@ public class ParkingLotFacts {
     }
 
     @Test
-    void should_feach_car_when_park_given_ticket() {
+    void should_return_correspond_car_when_feach_given_ticket() {
         //given
         Car car = new Car();
         ParkingLot parkingLot = new ParkingLot();
-        //when
         Ticket carTicket = parkingLot.park(car);
+        //when
+        Car actualCar = parkingLot.feach(carTicket);
         //then
-        Assertions.assertNotNull(carTicket);
+        Assertions.assertNotNull(actualCar);
+        Assertions.assertEquals(car,actualCar);
     }
 }
