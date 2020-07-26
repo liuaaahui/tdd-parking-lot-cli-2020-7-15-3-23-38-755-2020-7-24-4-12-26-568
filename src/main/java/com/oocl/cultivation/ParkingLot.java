@@ -5,19 +5,23 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ParkingLot {
-    private Map<Ticket, Car> parkRoom;
+    private final Map<Ticket, Car> parkRooms;
+    private final int PARKROOM_CAPACITY = 10;
 
     public ParkingLot() {
-        this.parkRoom = new HashMap<>();
+        this.parkRooms = new HashMap<>();
     }
 
     public Ticket park(Car car) {
-        Ticket ticket = new Ticket(car);
+        if (this.parkRooms.size() == this.PARKROOM_CAPACITY){
+            return null;
+        }
+        Ticket ticket = new Ticket();
+        this.parkRooms.put(ticket, car);
         return ticket;
     }
 
     public Car feach(Ticket carTicket) {
-        if (carTicket == null) return null;
-        return this.parkRoom.remove(carTicket);
+        return this.parkRooms.remove(carTicket);
     }
 }
