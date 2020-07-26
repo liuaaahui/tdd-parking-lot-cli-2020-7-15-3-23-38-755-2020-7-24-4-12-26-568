@@ -22,7 +22,7 @@ public class ParkingLot {
     }
 
     public Car feach(Ticket carTicket) {
-        if (carTicket == null) {
+        if (carTicket == null||this.parkRooms.containsKey(carTicket)) {
             System.out.print("Unrecognized parking ticket.\n");
             return null;
         }
