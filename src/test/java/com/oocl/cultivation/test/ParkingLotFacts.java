@@ -77,4 +77,16 @@ public class ParkingLotFacts {
         Assertions.assertNotEquals(car,feachCar);
     }
 
+    @Test
+    void should_return_null_when_feach_given_used_ticket() {
+        //given
+        Car car = new Car();
+        ParkingLot parkingLot = new ParkingLot();
+        Ticket ticket = parkingLot.park(car);
+        //when
+        parkingLot.feach(ticket);
+        Car feachCar = parkingLot.feach(ticket);
+        //then
+        Assertions.assertNull(feachCar);
+    }
 }
