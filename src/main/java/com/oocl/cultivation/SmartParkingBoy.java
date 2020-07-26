@@ -11,7 +11,8 @@ public class SmartParkingBoy extends ParkingBoy{
     public Ticket park(Car car) {
         ParkingLot parkingLotFlag = this.getParkingLotList().get(0);
         for(ParkingLot parkingLot: this.getParkingLotList()){
-            if(parkingLot.getParkRooms().size()<parkingLotFlag.getParkRooms().size()){
+            if(parkingLot.getCapacity()-parkingLot.getParkRooms().size()>parkingLotFlag.getCapacity()-parkingLotFlag.getParkRooms().size()){
+                System.out.println(parkingLot.getCapacity());
                 parkingLotFlag = parkingLot;
             }
         }
