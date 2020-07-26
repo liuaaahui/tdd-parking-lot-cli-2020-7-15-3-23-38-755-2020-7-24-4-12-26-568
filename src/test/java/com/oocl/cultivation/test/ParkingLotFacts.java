@@ -6,9 +6,6 @@ import com.oocl.cultivation.Ticket;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.locks.LockSupport;
 
 public class ParkingLotFacts {
     @Test
@@ -60,12 +57,24 @@ public class ParkingLotFacts {
         //when
         Car carWithFirstTicket = parkingLot.feach(firstTicket);
         Car carWithSecondTicket = parkingLot.feach(secondTicket);
-
         //then
         Assertions.assertNotNull(carWithFirstTicket);
         Assertions.assertNotNull(carWithSecondTicket);
         Assertions.assertEquals(carWithFirstTicket,firstCar);
         Assertions.assertEquals(carWithSecondTicket,secondCar);
+    }
+
+    @Test
+    void should_return_null_when_feach_given_no_ticket() {
+        //given
+        Car car = new Car();
+        ParkingLot parkingLot = new ParkingLot();
+        parkingLot.park(car);
+        //when
+        Car feachCar = parkingLot.feach(null);
+        //then
+        Assertions.assertNull(feachCar);
+        Assertions.assertNotEquals(car,feachCar);
     }
 
 }
