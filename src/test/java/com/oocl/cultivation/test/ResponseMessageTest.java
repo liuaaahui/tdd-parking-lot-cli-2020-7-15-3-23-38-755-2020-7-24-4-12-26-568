@@ -63,7 +63,7 @@ public class ResponseMessageTest {
     void should_have_error_message_when_park_given_11_cars() {
         //given
         ParkingLot parkingLot = new ParkingLot();
-        for(int count = 0;count <10;count++){
+        for (int count = 0; count < 10; count++) {
             parkingLot.park(new Car());
         }
         //when

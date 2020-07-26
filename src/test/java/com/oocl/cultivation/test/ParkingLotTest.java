@@ -29,7 +29,7 @@ public class ParkingLotTest {
         Car actualCar = parkingLot.feach(carTicket);
         //then
         Assertions.assertNotNull(actualCar);
-        Assertions.assertEquals(car,actualCar);
+        Assertions.assertEquals(car, actualCar);
     }
 
     @Test
@@ -60,8 +60,8 @@ public class ParkingLotTest {
         //then
         Assertions.assertNotNull(carWithFirstTicket);
         Assertions.assertNotNull(carWithSecondTicket);
-        Assertions.assertEquals(carWithFirstTicket,firstCar);
-        Assertions.assertEquals(carWithSecondTicket,secondCar);
+        Assertions.assertEquals(carWithFirstTicket, firstCar);
+        Assertions.assertEquals(carWithSecondTicket, secondCar);
     }
 
     @Test
@@ -74,7 +74,7 @@ public class ParkingLotTest {
         Car feachCar = parkingLot.feach(null);
         //then
         Assertions.assertNull(feachCar);
-        Assertions.assertNotEquals(car,feachCar);
+        Assertions.assertNotEquals(car, feachCar);
     }
 
     @Test
@@ -94,7 +94,7 @@ public class ParkingLotTest {
     void should_return_null_when_park_given_11_cars() {
         //given
         ParkingLot parkingLot = new ParkingLot();
-        for(int count = 0;count <10;count++){
+        for (int count = 0; count < 10; count++) {
             parkingLot.park(new Car());
         }
         //when

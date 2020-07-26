@@ -22,6 +22,6 @@ public class SmartParkingBoyTest {
         //when
         smartParkingBoy.park(new Car());
         //then
-        Assertions.assertEquals(1,secondParkingLot.getParkRooms().size());
+        Assertions.assertEquals(1, secondParkingLot.getParkRooms().size());
     }
 }

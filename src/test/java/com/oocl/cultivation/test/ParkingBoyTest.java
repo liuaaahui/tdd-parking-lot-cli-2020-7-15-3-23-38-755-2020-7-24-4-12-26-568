@@ -72,7 +72,7 @@ public class ParkingBoyTest {
         //when
         Car feachCar = parkingBoy.feach(ticket);
         //then
-        Assertions.assertEquals(car,feachCar);
+        Assertions.assertEquals(car, feachCar);
     }
 
     @Test
@@ -92,8 +92,8 @@ public class ParkingBoyTest {
         //then
         Assertions.assertNotNull(carWithFirstTicket);
         Assertions.assertNotNull(carWithSecondTicket);
-        Assertions.assertEquals(carWithFirstTicket,firstCar);
-        Assertions.assertEquals(carWithSecondTicket,secondCar);
+        Assertions.assertEquals(carWithFirstTicket, firstCar);
+        Assertions.assertEquals(carWithSecondTicket, secondCar);
     }
 
     @Test
@@ -109,7 +109,7 @@ public class ParkingBoyTest {
         Car feachCar = parkingBoy.feach(null);
         //then
         Assertions.assertNull(feachCar);
-        Assertions.assertNotEquals(car,feachCar);
+        Assertions.assertNotEquals(car, feachCar);
     }
 
     @Test
@@ -154,7 +154,7 @@ public class ParkingBoyTest {
         Car car = new Car();
         parkingBoy.park(car);
         //when
-       parkingBoy.feach(null);
+        parkingBoy.feach(null);
         //then
         Assertions.assertTrue(systemOut().endsWith("Please provide your parking ticket.\n"));
     }
@@ -166,7 +166,7 @@ public class ParkingBoyTest {
         List<ParkingLot> parkingLotList = new ArrayList<>();
         parkingLotList.add(firstParkingLot);
         ParkingBoy parkingBoy = new ParkingBoy(parkingLotList);
-        for(int count = 0;count <10;count++){
+        for (int count = 0; count < 10; count++) {
             parkingBoy.park(new Car());
         }
         //when

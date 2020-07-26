@@ -20,7 +20,7 @@ public class SuperSmartParkingBoyTest {
         parkingLotList.add(firstParkingLot);
         parkingLotList.add(secondParkingLot);
         SuperSmartParkingBoy superSmartParkingBoy = new SuperSmartParkingBoy(parkingLotList);
-        for (int count = 0; count <6; count++) {
+        for (int count = 0; count < 6; count++) {
             firstParkingLot.park(new Car());
         }
         secondParkingLot.park(new Car());

@@ -16,7 +16,7 @@ public class ParkingBoy {
     public Ticket park(Car car) {
         int parkingLotNumber = 0;
         ParkingLot parkingLot = this.parkingLotList.get(parkingLotNumber);
-        if (parkingLot.getParkRooms().size() >= 10 && this.parkingLotList.size()>1) {
+        if (parkingLot.getParkRooms().size() >= 10 && this.parkingLotList.size() > 1) {
             parkingLotNumber++;
             parkingLot = this.parkingLotList.get(parkingLotNumber);
         }
