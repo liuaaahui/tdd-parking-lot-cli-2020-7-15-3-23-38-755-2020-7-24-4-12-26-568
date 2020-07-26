@@ -22,6 +22,10 @@ public class ParkingLot {
     }
 
     public Car feach(Ticket carTicket) {
+        if (carTicket == null) {
+            System.out.print("Unrecognized parking ticket.\n");
+            return null;
+        }
         return this.parkRooms.remove(carTicket);
     }
 }
