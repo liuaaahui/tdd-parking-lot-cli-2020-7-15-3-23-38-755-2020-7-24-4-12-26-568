@@ -89,4 +89,17 @@ public class ParkingLotFacts {
         //then
         Assertions.assertNull(feachCar);
     }
+
+    @Test
+    void should_return_null_when_park_given_11_cars() {
+        //given
+        ParkingLot parkingLot = new ParkingLot();
+        for(int count = 0;count <10;count++){
+            parkingLot.park(new Car());
+        }
+        //when
+        Ticket ticket = parkingLot.park(new Car());
+        //then
+        Assertions.assertNull(ticket);
+    }
 }
