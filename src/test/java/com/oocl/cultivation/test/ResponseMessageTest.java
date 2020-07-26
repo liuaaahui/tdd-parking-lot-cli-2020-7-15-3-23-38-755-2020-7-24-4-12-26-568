@@ -22,17 +22,17 @@ public class ResponseMessageTest {
         return outContent.toString();
     }
 
-    @Test
-    void should_have_error_message_when_feach_given_no_ticket() {
-        //given
-        Car car = new Car();
-        ParkingLot parkingLot = new ParkingLot();
-        parkingLot.park(car);
-        //when
-        Car feachCar = parkingLot.feach(null);
-        //then
-        Assertions.assertTrue(systemOut().endsWith("Unrecognized parking ticket.\n"));
-    }
+//    @Test
+//    void should_have_error_message_when_feach_given_no_ticket() {
+//        //given
+//        Car car = new Car();
+//        ParkingLot parkingLot = new ParkingLot();
+//        parkingLot.park(car);
+//        //when
+//        Car feachCar = parkingLot.feach(null);
+//        //then
+//        Assertions.assertTrue(systemOut().endsWith("Unrecognized parking ticket.\n"));
+//    }
 
     @Test
     void should_have_error_message_when_feach_given_used_ticket() {
@@ -45,5 +45,17 @@ public class ResponseMessageTest {
         parkingLot.feach(ticket);
         //then
         Assertions.assertTrue(systemOut().endsWith("Unrecognized parking ticket.\n"));
+    }
+
+    @Test
+    void should_have_error_message_when_feach_given_no_ticket() {
+        //given
+        Car car = new Car();
+        ParkingLot parkingLot = new ParkingLot();
+        Ticket ticket = parkingLot.park(car);
+        //when
+        Car feachCar = parkingLot.feach(null);
+        //then
+        Assertions.assertTrue(systemOut().endsWith("Please provide your parking ticket.\n"));
     }
 }
