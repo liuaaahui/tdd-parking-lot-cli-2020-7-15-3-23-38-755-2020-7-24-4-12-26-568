@@ -31,7 +31,7 @@ public class ParkingLot {
             System.out.print("Please provide your parking ticket.\n");
             return null;
         }
-        if (this.parkRooms.containsKey(carTicket)) {
+        if (!this.parkRooms.containsKey(carTicket)) {
             System.out.print("Unrecognized parking ticket.\n");
             return null;
         }
