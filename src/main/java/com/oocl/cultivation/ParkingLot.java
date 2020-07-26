@@ -12,8 +12,12 @@ public class ParkingLot {
         this.parkRooms = new HashMap<>();
     }
 
+    public Map<Ticket, Car> getParkRooms() {
+        return parkRooms;
+    }
+
     public Ticket park(Car car) {
-        if (this.parkRooms.size() == this.PARKROOM_CAPACITY){
+        if (this.parkRooms.size() >= this.PARKROOM_CAPACITY){
             System.out.print("Not enough position.\n");
             return null;
         }
