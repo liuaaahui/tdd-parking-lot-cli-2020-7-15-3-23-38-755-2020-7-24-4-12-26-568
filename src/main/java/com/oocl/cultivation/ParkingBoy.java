@@ -9,6 +9,10 @@ public class ParkingBoy {
         this.parkingLotList = parkingLotList;
     }
 
+    public List<ParkingLot> getParkingLotList() {
+        return parkingLotList;
+    }
+
     public Ticket park(Car car) {
         int parkingLotNumber = 0;
         ParkingLot parkingLot = this.parkingLotList.get(parkingLotNumber);
