@@ -8,6 +8,7 @@ public class ParkingLot {
     }
 
     public Car feach(Ticket carTicket) {
+        if (carTicket == null) return null;
         return carTicket.getCar();
     }
 }
