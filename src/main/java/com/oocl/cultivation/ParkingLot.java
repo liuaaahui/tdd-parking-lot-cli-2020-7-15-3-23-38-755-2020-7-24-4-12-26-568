@@ -6,9 +6,15 @@ import java.util.Map;
 
 public class ParkingLot {
     private final Map<Ticket, Car> parkRooms;
-    private final int PARKROOM_CAPACITY = 10;
+    private final int capacity;
 
     public ParkingLot() {
+        this.capacity = 10;
+        this.parkRooms = new HashMap<>();
+    }
+
+    public ParkingLot(int capacity) {
+        this.capacity = capacity;
         this.parkRooms = new HashMap<>();
     }
 
@@ -16,8 +22,12 @@ public class ParkingLot {
         return parkRooms;
     }
 
+    public int getCapacity() {
+        return capacity;
+    }
+
     public Ticket park(Car car) {
-        if (this.parkRooms.size() >= this.PARKROOM_CAPACITY){
+        if (this.parkRooms.size() >= this.capacity) {
             System.out.print("Not enough position.\n");
             return null;
         }
@@ -27,7 +37,7 @@ public class ParkingLot {
     }
 
     public Car feach(Ticket carTicket) {
-        if (carTicket == null){
+        if (carTicket == null) {
             System.out.print("Please provide your parking ticket.\n");
             return null;
         }
