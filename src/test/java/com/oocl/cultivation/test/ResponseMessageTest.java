@@ -58,4 +58,17 @@ public class ResponseMessageTest {
         //then
         Assertions.assertTrue(systemOut().endsWith("Please provide your parking ticket.\n"));
     }
+
+    @Test
+    void should_have_error_message_when_park_given_11_cars() {
+        //given
+        ParkingLot parkingLot = new ParkingLot();
+        for(int count = 0;count <10;count++){
+            parkingLot.park(new Car());
+        }
+        //when
+        Ticket ticket = parkingLot.park(new Car());
+        //then
+        Assertions.assertTrue(systemOut().endsWith("Not enough position.\n"));
+    }
 }
