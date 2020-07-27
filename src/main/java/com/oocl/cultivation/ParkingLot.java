@@ -43,7 +43,7 @@ public class ParkingLot {
         }
         return false;
     }
-    public Car feach(Ticket carTicket) throws ParkingException {
+    public Car fetch(Ticket carTicket) throws ParkingException {
         if (carTicket == null) {
             throw new ParkingException(PLEASE_PROVIDE_YOUR_PARKING_TICKET);
         }

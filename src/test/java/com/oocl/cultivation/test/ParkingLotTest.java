@@ -23,14 +23,14 @@ public class ParkingLotTest {
     }
 
     @Test
-    void should_return_correspond_car_when_feach_given_ticket() throws ParkingException {
+    void should_return_correspond_car_when_fetch_given_ticket() throws ParkingException {
         //given
         Car car = new Car();
         ParkingLot parkingLot = new ParkingLot();
         Ticket carTicket = parkingLot.park(car);
 
         //when
-        Car actualCar = parkingLot.feach(carTicket);
+        Car actualCar = parkingLot.fetch(carTicket);
 
         //then
         Assertions.assertNotNull(actualCar);
@@ -54,7 +54,7 @@ public class ParkingLotTest {
     }
 
     @Test
-    void should_return_correspond_cars_when_feach_given_lot_tickets() throws ParkingException {
+    void should_return_correspond_cars_when_fetch_given_lot_tickets() throws ParkingException {
         //given
         Car firstCar = new Car();
         Car secondCar = new Car();
@@ -63,8 +63,8 @@ public class ParkingLotTest {
         Ticket secondTicket = parkingLot.park(secondCar);
 
         //when
-        Car carWithFirstTicket = parkingLot.feach(firstTicket);
-        Car carWithSecondTicket = parkingLot.feach(secondTicket);
+        Car carWithFirstTicket = parkingLot.fetch(firstTicket);
+        Car carWithSecondTicket = parkingLot.fetch(secondTicket);
 
         //then
         Assertions.assertNotNull(carWithFirstTicket);
@@ -74,29 +74,29 @@ public class ParkingLotTest {
     }
 
     @Test
-    void should_throw_error_message_when_feach_given_no_ticket() throws ParkingException {
+    void should_throw_error_message_when_fetch_given_no_ticket() throws ParkingException {
         //given
         Car car = new Car();
         ParkingLot parkingLot = new ParkingLot();
         parkingLot.park(car);
 
         //when
-        Throwable exception = Assertions.assertThrows(ParkingException.class, () -> parkingLot.feach(null));
+        Throwable exception = Assertions.assertThrows(ParkingException.class, () -> parkingLot.fetch(null));
 
         //then
         Assertions.assertEquals("Please provide your parking ticket.\n",exception.getMessage());
     }
 
     @Test
-    void should_throw_error_message_when_feach_given_used_ticket() throws ParkingException {
+    void should_throw_error_message_when_fetch_given_used_ticket() throws ParkingException {
         //given
         Car car = new Car();
         ParkingLot parkingLot = new ParkingLot();
         Ticket ticket = parkingLot.park(car);
 
         //when
-        parkingLot.feach(ticket);
-        Throwable exception = Assertions.assertThrows(ParkingException.class, () -> parkingLot.feach(ticket));
+        parkingLot.fetch(ticket);
+        Throwable exception = Assertions.assertThrows(ParkingException.class, () -> parkingLot.fetch(ticket));
 
         //then
         Assertions.assertEquals("Unrecognized parking ticket.\n",exception.getMessage());

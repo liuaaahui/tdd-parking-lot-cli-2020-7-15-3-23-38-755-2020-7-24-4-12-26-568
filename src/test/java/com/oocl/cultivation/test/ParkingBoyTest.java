@@ -60,7 +60,7 @@ public class ParkingBoyTest {
     }
 
     @Test
-    void should_return_correspond_car_when_feach_given_ticket() throws ParkingException {
+    void should_return_correspond_car_when_fetch_given_ticket() throws ParkingException {
         //given
         ParkingLot firstParkingLot = new ParkingLot();
         ParkingLot secondParkingLot = new ParkingLot();
@@ -72,14 +72,14 @@ public class ParkingBoyTest {
         Ticket ticket = parkingBoy.park(car);
 
         //when
-        Car feachCar = parkingBoy.feach(ticket);
+        Car fetchCar = parkingBoy.fetch(ticket);
 
         //then
-        Assertions.assertEquals(car, feachCar);
+        Assertions.assertEquals(car, fetchCar);
     }
 
     @Test
-    void should_return_correspond_cars_when_feach_given_lot_tickets() throws ParkingException {
+    void should_return_correspond_cars_when_fetch_given_lot_tickets() throws ParkingException {
         //given
         ParkingLot firstParkingLot = new ParkingLot();
         List<ParkingLot> parkingLotList = new ArrayList<>();
@@ -91,8 +91,8 @@ public class ParkingBoyTest {
         Ticket secondTicket = parkingBoy.park(secondCar);
 
         //when
-        Car carWithFirstTicket = parkingBoy.feach(firstTicket);
-        Car carWithSecondTicket = parkingBoy.feach(secondTicket);
+        Car carWithFirstTicket = parkingBoy.fetch(firstTicket);
+        Car carWithSecondTicket = parkingBoy.fetch(secondTicket);
 
         //then
         Assertions.assertNotNull(carWithFirstTicket);
@@ -102,7 +102,7 @@ public class ParkingBoyTest {
     }
 
     @Test
-    void should_return_null_when_feach_given_no_ticket() throws ParkingException {
+    void should_return_null_when_fetch_given_no_ticket() throws ParkingException {
         //given
         ParkingLot firstParkingLot = new ParkingLot();
         List<ParkingLot> parkingLotList = new ArrayList<>();
@@ -112,14 +112,14 @@ public class ParkingBoyTest {
         parkingBoy.park(car);
 
         //when
-        Throwable exception = Assertions.assertThrows(ParkingException.class, () -> parkingBoy.feach(null));
+        Throwable exception = Assertions.assertThrows(ParkingException.class, () -> parkingBoy.fetch(null));
 
         //then
         Assertions.assertEquals("Please provide your parking ticket.\n",exception.getMessage());
     }
 
     @Test
-    void should_throw_error_message_when_feach_given_used_ticket() throws ParkingException {
+    void should_throw_error_message_when_fetch_given_used_ticket() throws ParkingException {
         //given
         ParkingLot firstParkingLot = new ParkingLot();
         List<ParkingLot> parkingLotList = new ArrayList<>();
@@ -129,15 +129,15 @@ public class ParkingBoyTest {
         Ticket ticket = parkingBoy.park(car);
 
         //when
-        parkingBoy.feach(ticket);
-        Throwable exception = Assertions.assertThrows(ParkingException.class, () -> parkingBoy.feach(ticket));
+        parkingBoy.fetch(ticket);
+        Throwable exception = Assertions.assertThrows(ParkingException.class, () -> parkingBoy.fetch(ticket));
 
         //then
         Assertions.assertEquals("Unrecognized parking ticket.\n",exception.getMessage());
     }
 
     @Test
-    void should_throw_error_message_when_feach_given_no_ticket() throws ParkingException {
+    void should_throw_error_message_when_fetch_given_no_ticket() throws ParkingException {
         //given
         ParkingLot firstParkingLot = new ParkingLot();
         List<ParkingLot> parkingLotList = new ArrayList<>();
@@ -147,7 +147,7 @@ public class ParkingBoyTest {
         parkingBoy.park(car);
 
         //when
-        Throwable exception = Assertions.assertThrows(ParkingException.class, () -> parkingBoy.feach(null));
+        Throwable exception = Assertions.assertThrows(ParkingException.class, () -> parkingBoy.fetch(null));
 
         //then
         Assertions.assertEquals("Please provide your parking ticket.\n",exception.getMessage());

@@ -24,13 +24,13 @@ public class ParkingBoy {
         return parkingLot.park(car);
     }
 
-    public Car feach(Ticket carTicket) throws ParkingException {
+    public Car fetch(Ticket carTicket) throws ParkingException {
         if (carTicket == null) {
             throw new ParkingException(PLEASE_PROVIDE_YOUR_PARKING_TICKET);
         }
         Car car = null;
         for (ParkingLot parkingLot : this.parkingLotList) {
-            car = parkingLot.feach(carTicket);
+            car = parkingLot.fetch(carTicket);
             if (car != null) return car;
         }
         return car;
