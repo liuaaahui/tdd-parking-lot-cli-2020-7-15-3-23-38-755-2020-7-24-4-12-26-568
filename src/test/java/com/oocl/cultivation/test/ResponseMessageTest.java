@@ -1,6 +1,7 @@
 package com.oocl.cultivation.test;
 
 import com.oocl.cultivation.Car;
+import com.oocl.cultivation.ParkingException;
 import com.oocl.cultivation.ParkingLot;
 import com.oocl.cultivation.Ticket;
 import org.junit.jupiter.api.Assertions;
@@ -60,15 +61,19 @@ public class ResponseMessageTest {
     }
 
     @Test
-    void should_have_error_message_when_park_given_11_cars() {
+    void should_throw_error_message_when_park_given_11_cars() throws ParkingException {
         //given
         ParkingLot parkingLot = new ParkingLot();
         for (int count = 0; count < 10; count++) {
             parkingLot.park(new Car());
         }
+
         //when
-        Ticket ticket = parkingLot.park(new Car());
+        Throwable exception = Assertions.assertThrows(ParkingException.class, () -> {
+            parkingLot.park(new Car());
+        });
+
         //then
-        Assertions.assertTrue(systemOut().endsWith("Not enough position.\n"));
+        Assertions.assertEquals("Not enough position.\n",exception.getMessage());
     }
 }
