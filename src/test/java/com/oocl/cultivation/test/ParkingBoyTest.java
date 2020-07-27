@@ -138,7 +138,7 @@ public class ParkingBoyTest {
     }
 
     @Test
-    void should_have_error_message_when_feach_given_no_ticket() throws ParkingException {
+    void should_throw_error_message_when_feach_given_no_ticket() throws ParkingException {
         //given
         ParkingLot firstParkingLot = new ParkingLot();
         List<ParkingLot> parkingLotList = new ArrayList<>();
@@ -155,7 +155,7 @@ public class ParkingBoyTest {
     }
 
     @Test
-    void should_have_error_message_when_hava_one_parklot_given_11_cars() throws ParkingException {
+    void should_throw_error_message_when_hava_one_parklot_given_11_cars() throws ParkingException {
         //given
         ParkingLot firstParkingLot = new ParkingLot();
         List<ParkingLot> parkingLotList = new ArrayList<>();

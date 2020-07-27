@@ -74,7 +74,7 @@ public class ParkingLotTest {
     }
 
     @Test
-    void should_have_error_message_when_feach_given_no_ticket() throws ParkingException {
+    void should_throw_error_message_when_feach_given_no_ticket() throws ParkingException {
         //given
         Car car = new Car();
         ParkingLot parkingLot = new ParkingLot();
@@ -88,7 +88,7 @@ public class ParkingLotTest {
     }
 
     @Test
-    void should_return_null_when_feach_given_used_ticket() throws ParkingException {
+    void should_throw_error_message_when_feach_given_used_ticket() throws ParkingException {
         //given
         Car car = new Car();
         ParkingLot parkingLot = new ParkingLot();
