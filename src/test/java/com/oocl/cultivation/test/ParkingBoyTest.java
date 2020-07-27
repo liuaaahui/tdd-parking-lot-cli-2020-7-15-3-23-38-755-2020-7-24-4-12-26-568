@@ -112,11 +112,10 @@ public class ParkingBoyTest {
         parkingBoy.park(car);
 
         //when
-        Car feachCar = parkingBoy.feach(null);
+        Throwable exception = Assertions.assertThrows(ParkingException.class, () -> parkingBoy.feach(null));
 
         //then
-        Assertions.assertNull(feachCar);
-        Assertions.assertNotEquals(car, feachCar);
+        Assertions.assertEquals("Please provide your parking ticket.\n",exception.getMessage());
     }
 
     @Test
@@ -148,10 +147,10 @@ public class ParkingBoyTest {
         parkingBoy.park(car);
 
         //when
-        parkingBoy.feach(null);
+        Throwable exception = Assertions.assertThrows(ParkingException.class, () -> parkingBoy.feach(null));
 
         //then
-        Assertions.assertTrue(systemOut().endsWith("Please provide your parking ticket.\n"));
+        Assertions.assertEquals("Please provide your parking ticket.\n",exception.getMessage());
     }
 
     @Test

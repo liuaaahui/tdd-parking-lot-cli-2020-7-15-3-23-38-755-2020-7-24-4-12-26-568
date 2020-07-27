@@ -3,6 +3,7 @@ package com.oocl.cultivation;
 import java.util.List;
 
 public class ParkingBoy {
+    private static final String PLEASE_PROVIDE_YOUR_PARKING_TICKET = "Please provide your parking ticket.\n";
     private List<ParkingLot> parkingLotList;
 
     public ParkingBoy(List<ParkingLot> parkingLotList) {
@@ -25,8 +26,7 @@ public class ParkingBoy {
 
     public Car feach(Ticket carTicket) throws ParkingException {
         if (carTicket == null) {
-            System.out.print("Please provide your parking ticket.\n");
-            return null;
+            throw new ParkingException(PLEASE_PROVIDE_YOUR_PARKING_TICKET);
         }
         Car car = null;
         for (ParkingLot parkingLot : this.parkingLotList) {
