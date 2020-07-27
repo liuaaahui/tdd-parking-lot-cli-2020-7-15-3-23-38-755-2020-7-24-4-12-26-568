@@ -8,7 +8,7 @@ public class SuperSmartParkingBoy extends ParkingBoy {
         super(parkingLotList);
     }
 
-    public Ticket park(Car car) {
+    public Ticket park(Car car) throws ParkingException {
         ParkingLot parkingLotFlag = this.getParkingLotList().get(0);
         for (ParkingLot parkingLot : this.getParkingLotList()) {
             if (parkingLot.getParkRooms().size() * parkingLotFlag.getCapacity() < parkingLotFlag.getParkRooms().size() * parkingLot.getCapacity()) {

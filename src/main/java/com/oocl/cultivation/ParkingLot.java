@@ -26,16 +26,20 @@ public class ParkingLot {
         return capacity;
     }
 
-    public Ticket park(Car car) {
-        if (this.parkRooms.size() >= this.capacity) {
-            System.out.print("Not enough position.\n");
-            return null;
+    public Ticket park(Car car) throws ParkingException {
+        if (!isCapacityFull()){
+            Ticket ticket = new Ticket();
+            this.parkRooms.put(ticket, car);
+            return ticket;
         }
-        Ticket ticket = new Ticket();
-        this.parkRooms.put(ticket, car);
-        return ticket;
+        return null;
     }
-
+    public boolean isCapacityFull() throws ParkingException{
+        if (this.parkRooms.size() >= this.capacity) {
+            throw new ParkingException("Not enough position.\n");
+        }
+        return false;
+    }
     public Car feach(Ticket carTicket) {
         if (carTicket == null) {
             System.out.print("Please provide your parking ticket.\n");

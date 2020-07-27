@@ -9,7 +9,7 @@ import java.util.List;
 
 public class SmartParkingBoyTest {
     @Test
-    void should_second_parkingLot_return_not_null_when_park_and_second_parkingLot_has_cars_given_car() {
+    void should_second_parkingLot_return_not_null_when_park_and_second_parkingLot_has_cars_given_car() throws ParkingException {
         //given
         ParkingLot firstParkingLot = new ParkingLot();
         ParkingLot secondParkingLot = new ParkingLot();
@@ -19,8 +19,10 @@ public class SmartParkingBoyTest {
         SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkingLotList);
         firstParkingLot.park(new Car());
         firstParkingLot.park(new Car());
+
         //when
         smartParkingBoy.park(new Car());
+
         //then
         Assertions.assertEquals(1, secondParkingLot.getParkRooms().size());
     }

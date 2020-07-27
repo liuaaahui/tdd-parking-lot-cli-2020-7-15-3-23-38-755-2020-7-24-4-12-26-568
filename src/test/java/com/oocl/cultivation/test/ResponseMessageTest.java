@@ -36,7 +36,7 @@ public class ResponseMessageTest {
 //    }
 
     @Test
-    void should_have_error_message_when_feach_given_used_ticket() {
+    void should_have_error_message_when_feach_given_used_ticket() throws ParkingException {
         //given
         Car car = new Car();
         ParkingLot parkingLot = new ParkingLot();
@@ -49,7 +49,7 @@ public class ResponseMessageTest {
     }
 
     @Test
-    void should_have_error_message_when_feach_given_no_ticket() {
+    void should_have_error_message_when_feach_given_no_ticket() throws ParkingException {
         //given
         Car car = new Car();
         ParkingLot parkingLot = new ParkingLot();
