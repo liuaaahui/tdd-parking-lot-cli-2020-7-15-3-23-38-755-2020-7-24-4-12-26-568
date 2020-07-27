@@ -30,7 +30,7 @@ public class ParkingLot {
     }
 
     public Ticket park(Car car) throws ParkingException {
-        if(isFull()){
+        if (isFull()) {
             throw new ParkingException(NOT_ENOUGH_POSITION);
         }
         Ticket ticket = new Ticket();
@@ -45,12 +45,13 @@ public class ParkingLot {
 //        return false;
 //    }
 
-    public boolean isFull(){
+    public boolean isFull() {
         if (this.getParkRooms().size() >= this.capacity) {
             return true;
         }
         return false;
     }
+
     public Car fetch(Ticket carTicket) throws ParkingException {
         if (carTicket == null) {
             throw new ParkingException(PLEASE_PROVIDE_YOUR_PARKING_TICKET);

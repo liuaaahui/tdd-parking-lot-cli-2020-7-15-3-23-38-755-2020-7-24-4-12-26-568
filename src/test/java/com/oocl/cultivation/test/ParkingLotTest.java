@@ -84,7 +84,7 @@ public class ParkingLotTest {
         Throwable exception = Assertions.assertThrows(ParkingException.class, () -> parkingLot.fetch(null));
 
         //then
-        Assertions.assertEquals("Please provide your parking ticket.\n",exception.getMessage());
+        Assertions.assertEquals("Please provide your parking ticket.\n", exception.getMessage());
     }
 
     @Test
@@ -99,7 +99,7 @@ public class ParkingLotTest {
         Throwable exception = Assertions.assertThrows(ParkingException.class, () -> parkingLot.fetch(ticket));
 
         //then
-        Assertions.assertEquals("Unrecognized parking ticket.\n",exception.getMessage());
+        Assertions.assertEquals("Unrecognized parking ticket.\n", exception.getMessage());
     }
 
     @Test
@@ -114,6 +114,6 @@ public class ParkingLotTest {
         Throwable exception = Assertions.assertThrows(ParkingException.class, () -> parkingLot.park(new Car()));
 
         //then
-        Assertions.assertEquals("Not enough position.\n",exception.getMessage());
+        Assertions.assertEquals("Not enough position.\n", exception.getMessage());
     }
 }
