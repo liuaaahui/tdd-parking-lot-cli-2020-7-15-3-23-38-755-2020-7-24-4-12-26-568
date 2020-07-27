@@ -36,16 +36,17 @@ public class ResponseMessageTest {
 //    }
 
     @Test
-    void should_have_error_message_when_feach_given_used_ticket() throws ParkingException {
+    void should_throw_error_message_when_feach_given_used_ticket() throws ParkingException {
         //given
         Car car = new Car();
         ParkingLot parkingLot = new ParkingLot();
         Ticket ticket = parkingLot.park(car);
         //when
         parkingLot.feach(ticket);
-        parkingLot.feach(ticket);
+        Throwable exception = Assertions.assertThrows(ParkingException.class, () -> parkingLot.feach(ticket));
+
         //then
-        Assertions.assertTrue(systemOut().endsWith("Unrecognized parking ticket.\n"));
+        Assertions.assertEquals("Unrecognized parking ticket.\n",exception.getMessage());
     }
 
     @Test

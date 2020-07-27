@@ -96,10 +96,10 @@ public class ParkingLotTest {
 
         //when
         parkingLot.feach(ticket);
-        Car feachCar = parkingLot.feach(ticket);
+        Throwable exception = Assertions.assertThrows(ParkingException.class, () -> parkingLot.feach(ticket));
 
         //then
-        Assertions.assertNull(feachCar);
+        Assertions.assertEquals("Unrecognized parking ticket.\n",exception.getMessage());
     }
 
     @Test
