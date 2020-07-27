@@ -54,10 +54,12 @@ public class ResponseMessageTest {
         Car car = new Car();
         ParkingLot parkingLot = new ParkingLot();
         Ticket ticket = parkingLot.park(car);
+
         //when
-        Car feachCar = parkingLot.feach(null);
+        Throwable exception = Assertions.assertThrows(ParkingException.class, () -> parkingLot.feach(null));
+
         //then
-        Assertions.assertTrue(systemOut().endsWith("Please provide your parking ticket.\n"));
+        Assertions.assertEquals("Please provide your parking ticket.\n",exception.getMessage());
     }
 
     @Test

@@ -40,10 +40,9 @@ public class ParkingLot {
         }
         return false;
     }
-    public Car feach(Ticket carTicket) {
+    public Car feach(Ticket carTicket) throws ParkingException {
         if (carTicket == null) {
-            System.out.print("Please provide your parking ticket.\n");
-            return null;
+            throw new ParkingException("Please provide your parking ticket.\n");
         }
         if (!this.parkRooms.containsKey(carTicket)) {
             System.out.print("Unrecognized parking ticket.\n");

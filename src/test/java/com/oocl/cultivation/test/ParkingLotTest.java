@@ -74,18 +74,17 @@ public class ParkingLotTest {
     }
 
     @Test
-    void should_return_null_when_feach_given_no_ticket() throws ParkingException {
+    void should_have_error_message_when_feach_given_no_ticket() throws ParkingException {
         //given
         Car car = new Car();
         ParkingLot parkingLot = new ParkingLot();
         parkingLot.park(car);
 
         //when
-        Car feachCar = parkingLot.feach(null);
+        Throwable exception = Assertions.assertThrows(ParkingException.class, () -> parkingLot.feach(null));
 
         //then
-        Assertions.assertNull(feachCar);
-        Assertions.assertNotEquals(car, feachCar);
+        Assertions.assertEquals("Please provide your parking ticket.\n",exception.getMessage());
     }
 
     @Test

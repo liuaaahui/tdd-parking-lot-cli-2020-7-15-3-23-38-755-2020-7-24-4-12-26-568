@@ -23,7 +23,7 @@ public class ParkingBoy {
         return parkingLot.park(car);
     }
 
-    public Car feach(Ticket carTicket) {
+    public Car feach(Ticket carTicket) throws ParkingException {
         if (carTicket == null) {
             System.out.print("Please provide your parking ticket.\n");
             return null;
