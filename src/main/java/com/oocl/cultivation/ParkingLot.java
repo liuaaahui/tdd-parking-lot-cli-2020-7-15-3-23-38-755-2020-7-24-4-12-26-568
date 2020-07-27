@@ -30,16 +30,24 @@ public class ParkingLot {
     }
 
     public Ticket park(Car car) throws ParkingException {
-        if (!isCapacityFull()){
-            Ticket ticket = new Ticket();
-            this.parkRooms.put(ticket, car);
-            return ticket;
-        }
-        return null;
-    }
-    public boolean isCapacityFull() throws ParkingException{
-        if (this.parkRooms.size() >= this.capacity) {
+        if(isFull()){
             throw new ParkingException(NOT_ENOUGH_POSITION);
+        }
+        Ticket ticket = new Ticket();
+        this.parkRooms.put(ticket, car);
+        return ticket;
+    }
+
+//    public boolean isCapacityFull() throws ParkingException{
+//        if (this.parkRooms.size() >= this.capacity) {
+//            throw new ParkingException(NOT_ENOUGH_POSITION);
+//        }
+//        return false;
+//    }
+
+    public boolean isFull(){
+        if (this.getParkRooms().size() >= this.capacity) {
+            return true;
         }
         return false;
     }
