@@ -23,17 +23,19 @@ public class ResponseMessageTest {
         return outContent.toString();
     }
 
-//    @Test
-//    void should_have_error_message_when_feach_given_no_ticket() {
-//        //given
-//        Car car = new Car();
-//        ParkingLot parkingLot = new ParkingLot();
-//        parkingLot.park(car);
-//        //when
-//        Car feachCar = parkingLot.feach(null);
-//        //then
-//        Assertions.assertTrue(systemOut().endsWith("Unrecognized parking ticket.\n"));
-//    }
+    @Test
+    void should_have_error_message_when_feach_given_wrong_ticket() throws ParkingException {
+        //given
+        Car car = new Car();
+        ParkingLot parkingLot = new ParkingLot();
+        parkingLot.park(car);
+
+        //when
+        Throwable exception = Assertions.assertThrows(ParkingException.class, () -> parkingLot.feach(new Ticket()));
+
+        //then
+        Assertions.assertEquals("Unrecognized parking ticket.\n",exception.getMessage());
+    }
 
     @Test
     void should_throw_error_message_when_feach_given_used_ticket() throws ParkingException {
