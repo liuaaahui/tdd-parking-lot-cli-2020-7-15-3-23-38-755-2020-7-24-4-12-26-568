@@ -6,6 +6,7 @@ import java.util.Map;
 
 public class ParkingLot {
     private static final String PLEASE_PROVIDE_YOUR_PARKING_TICKET = "Please provide your parking ticket.\n";
+    private static final String NOT_ENOUGH_POSITION = "Not enough position.\n";
     private final Map<Ticket, Car> parkRooms;
     private final int capacity;
 
@@ -37,7 +38,7 @@ public class ParkingLot {
     }
     public boolean isCapacityFull() throws ParkingException{
         if (this.parkRooms.size() >= this.capacity) {
-            throw new ParkingException("Not enough position.\n");
+            throw new ParkingException(NOT_ENOUGH_POSITION);
         }
         return false;
     }
