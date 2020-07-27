@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ParkingLot {
+    private static final String PLEASE_PROVIDE_YOUR_PARKING_TICKET = "Please provide your parking ticket.\n";
     private final Map<Ticket, Car> parkRooms;
     private final int capacity;
 
@@ -42,7 +43,7 @@ public class ParkingLot {
     }
     public Car feach(Ticket carTicket) throws ParkingException {
         if (carTicket == null) {
-            throw new ParkingException("Please provide your parking ticket.\n");
+            throw new ParkingException(PLEASE_PROVIDE_YOUR_PARKING_TICKET);
         }
         if (!this.parkRooms.containsKey(carTicket)) {
             throw new ParkingException("Unrecognized parking ticket.\n");
