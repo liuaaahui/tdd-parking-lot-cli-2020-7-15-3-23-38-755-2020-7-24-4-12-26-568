@@ -38,13 +38,6 @@ public class ParkingLot {
         return ticket;
     }
 
-//    public boolean isCapacityFull() throws ParkingException{
-//        if (this.parkRooms.size() >= this.capacity) {
-//            throw new ParkingException(NOT_ENOUGH_POSITION);
-//        }
-//        return false;
-//    }
-
     public boolean isFull() {
         if (this.getParkRooms().size() >= this.capacity) {
             return true;
@@ -60,5 +53,9 @@ public class ParkingLot {
             throw new ParkingException(UNRECOGNIZED_PARKING_TICKET);
         }
         return this.parkRooms.remove(carTicket);
+    }
+
+    public int getSurplusPosition() {
+        return this.getCapacity() - this.getParkRooms().size();
     }
 }
